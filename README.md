@@ -102,19 +102,19 @@ Isolation Forest   Local Outlier Factor
              Operational Insights
 
 
-1. Data Preprocessing
+# 1. Data Preprocessing
 
-The preprocessing stage was performed to prepare the CEMS data for subsequent analysis.
+The raw CEMS data consisted of multiple monthly files containing hourly emission and operational measurements. These files were integrated into a single chronological dataset to establish a consistent time-series structure.
 
-The preprocessing workflow included:
+The preprocessing stage included:
 
-Integrating monthly CEMS datasets into a unified dataset.
-Cleaning and validating the collected observations.
-Removing invalid or non-operational observations.
-Handling missing values.
-Replacing invalid zero values with missing values where appropriate.
-Performing time-based interpolation for selected variables.
-Standardizing timestamp formats.
-Preparing the final dataset for exploratory analysis and modeling.
+- Integrating monthly CEMS data files.
+- Standardizing date and time formats.
+- Creating a unified `DATETIME` index.
+- Removing non-operational and shutdown periods.
+- Identifying and handling invalid zero values.
+- Handling missing observations.
+- Applying time-based interpolation where appropriate.
+- Preparing the cleaned multivariate dataset for modeling.
 
-The preprocessing process was implemented using Python and related data-processing libraries.
+The resulting dataset was structured as an hourly multivariate time series and used as the foundation for the subsequent exploratory analysis, feature engineering, and anomaly detection stages.
