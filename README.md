@@ -123,3 +123,34 @@ The feature structure can be summarized as:
 
 ```text
 24 hours × 6 variables = 144 features
+
+## 4. Anomaly Detection Methods
+
+Two unsupervised anomaly detection algorithms were applied to identify potentially abnormal patterns in the multivariate CEMS data: **Isolation Forest** and **Local Outlier Factor (LOF)**.
+
+### Isolation Forest
+
+Isolation Forest identifies anomalies based on how easily observations can be isolated from the rest of the dataset.
+
+The algorithm constructs multiple isolation trees and evaluates the path length required to isolate each observation. Observations that are isolated more easily tend to have shorter path lengths and are therefore considered more likely to be anomalous.
+
+In this project, Isolation Forest was used to detect **globally unusual deviations** within the multivariate temporal patterns of the CEMS data.
+
+### Local Outlier Factor
+
+Local Outlier Factor (LOF) identifies anomalies by comparing the local density of an observation with the density of its neighboring observations.
+
+An observation with substantially lower local density than its surrounding observations tends to receive a higher LOF value and is considered more likely to be anomalous.
+
+In this project, LOF was used as a complementary approach to Isolation Forest because it focuses on **local deviations relative to neighboring observations**.
+
+### Why Use Both Methods?
+
+Isolation Forest and LOF provide complementary perspectives on anomaly detection.
+
+- **Isolation Forest** focuses on observations that are globally distinct from the overall data structure.
+- **LOF** focuses on observations that deviate from the local density of their neighboring observations.
+
+Using both approaches allows the project to compare different types of anomalous behavior within the multivariate CEMS data.
+
+
