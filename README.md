@@ -58,4 +58,4 @@ These variables represent a combination of emission and operational characterist
 
 ## Project Workflow
 
-![Project Workflow](images/Research_Flowchart.png)
+![Project Workflow](images/Research_Flowchart.jpg)
