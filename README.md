@@ -100,3 +100,21 @@ Isolation Forest   Local Outlier Factor
               └───────┬───────┘
                       ▼
              Operational Insights
+
+
+1. Data Preprocessing
+
+The preprocessing stage was performed to prepare the CEMS data for subsequent analysis.
+
+The preprocessing workflow included:
+
+Integrating monthly CEMS datasets into a unified dataset.
+Cleaning and validating the collected observations.
+Removing invalid or non-operational observations.
+Handling missing values.
+Replacing invalid zero values with missing values where appropriate.
+Performing time-based interpolation for selected variables.
+Standardizing timestamp formats.
+Preparing the final dataset for exploratory analysis and modeling.
+
+The preprocessing process was implemented using Python and related data-processing libraries.
