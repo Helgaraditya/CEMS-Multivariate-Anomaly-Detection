@@ -59,3 +59,67 @@ These variables represent a combination of emission and operational characterist
 ## Project Workflow
 
 ![Project Workflow](images/Research_Flowchart.jpg)
+
+The following sections describe each stage of the workflow, from data preprocessing to the final anomaly analysis and key findings.
+
+---
+
+## 1. Data Preprocessing
+
+The preprocessing stage was performed to prepare the CEMS data for subsequent analysis and modeling.
+
+The preprocessing workflow included:
+
+- Integrating monthly CEMS datasets into a unified dataset.
+- Cleaning and validating the collected observations.
+- Removing invalid or non-operational observations.
+- Handling missing values.
+- Replacing invalid zero values with missing values where appropriate.
+- Performing time-based interpolation for selected variables.
+- Standardizing timestamp formats.
+- Preparing the final dataset for exploratory analysis and modeling.
+
+The preprocessing process was implemented using Python and related data-processing libraries.
+
+---
+
+## 2. Exploratory Data Analysis
+
+Exploratory Data Analysis (EDA) was performed to understand the characteristics and relationships within the CEMS data before applying anomaly detection models.
+
+The analysis included:
+
+- Descriptive statistics.
+- Distribution analysis.
+- Histograms.
+- Boxplots.
+- Time-series visualization.
+- Correlation analysis.
+- Correlation heatmaps.
+- Identification of potential relationships between emission and operational variables.
+
+The EDA stage was used to understand the normal behavior, distribution, and variability of the monitored variables.
+
+---
+
+## 3. Feature Engineering
+
+### Data Standardization
+
+The six CEMS variables were standardized before applying the sliding-window transformation so that differences in measurement scales would not dominate the anomaly detection process.
+
+### 24-Hour Sliding Window
+
+A 24-hour sliding window was used to capture temporal patterns across one day.
+
+For each modeling observation, 24 consecutive hourly observations were combined into a single window.
+
+The initial dataset contained **8,760 hourly observations**. With a window size of 24, the transformation generated:
+
+- **8,737 sliding windows**
+- **144 features per window**
+
+The feature structure can be summarized as:
+
+```text
+24 hours × 6 variables = 144 features
